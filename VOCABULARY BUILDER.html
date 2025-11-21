@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title> Vocabulary Builder</title>
+<style>
+    body {
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: radial-gradient(circle at center, #1f1f1f, #0a0a0a);
+        color: #fff;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        width: 420px;
+        background: rgba(0,0,0,0.65);
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 0 0 25px #6d27ff60, 0 0 70px #6d27ff30;
+        backdrop-filter: blur(12px);
+        border: 1px solid #6d27ff70;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+        font-weight: 600;
+        text-shadow: 0 0 12px #7f4cff;
+    }
+
+    .word-box {
+        background: rgba(255,255,255,0.08);
+        padding: 15px;
+        border-radius: 12px;
+        margin-bottom: 15px;
+        box-shadow: 0 0 10px #000 inset;
+        border-left: 4px solid #7f4cff;
+    }
+
+    .label {
+        opacity: 0.8;
+        font-size: 14px;
+    }
+
+    .value {
+        font-size: 20px;
+        margin-top: 5px;
+        color: #d5c3ff;
+        text-shadow: 0 0 5px #7f4cff;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        margin-top: 10px;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        background: linear-gradient(90deg, #6d27ff, #b44cff);
+        color: #fff;
+        cursor: pointer;
+        box-shadow: 0 0 15px #6d27ff80;
+        transition: 0.2s;
+    }
+
+    button:hover {
+        box-shadow: 0 0 25px #6d27ff;
+        transform: scale(1.03);
+    }
+
+    #example {
+        font-style: italic;
+        color: #c9b2ff;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>📘 Vocabulary Builder</h2>
+
+    <div class="word-box">
+        <div class="label">Word</div>
+        <div class="value" id="word">—</div>
+    </div>
+
+    <div class="word-box">
+        <div class="label">Meaning</div>
+        <div class="value" id="meaning">—</div>
+    </div>
+
+    <div class="word-box">
+        <div class="label">Example</div>
+        <div class="value" id="example">—</div>
+    </div>
+
+    <button onclick="generateWord()">✨ Generate New Word</button>
+</div>
+
+
+<script>
+const words = [
+    {
+        word: "Eloquent",
+        meaning: "Speaking in a fluent, expressive, and persuasive way.",
+        example: "Her speech was so eloquent that everyone applauded."
+    },
+    {
+        word: "Serenity",
+        meaning: "The state of being calm, peaceful, and unbothered.",
+        example: "Early morning walks give me pure serenity."
+    },
+    {
+        word: "Vibrant",
+        meaning: "Full of energy, color, or life.",
+        example: "The city looked vibrant during the festival."
+    },
+    {
+        word: "Resilient",
+        meaning: "Able to recover quickly from challenges.",
+        example: "She is resilient and never gives up."
+    },
+    {
+        word: "Illuminate",
+        meaning: "To light up or make something clear.",
+        example: "The neon lights illuminate the entire street."
+    }
+];
+
+function generateWord() {
+    const random = words[Math.floor(Math.random() * words.length)];
+    document.getElementById("word").textContent = random.word;
+    document.getElementById("meaning").textContent = random.meaning;
+    document.getElementById("example").textContent = random.example;
+}
+</script>
+
+</body>
+</html>
